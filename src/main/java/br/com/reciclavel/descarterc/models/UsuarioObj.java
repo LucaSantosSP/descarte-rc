@@ -13,7 +13,7 @@ public class UsuarioObj extends AbstractEntity{
 	@Column(name = "nm_usuario", length = 60)
 	private String nmUsuario;
 	
-	@Column(name = "tx_email", length = 120)
+	@Column(name = "tx_email", length = 120, unique=true)
 	private String txEmail;
 	
 	@Column(name = "cd_senha", length = 120)
