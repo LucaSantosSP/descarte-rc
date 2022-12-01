@@ -22,10 +22,10 @@ public class DetalhesUsuarioServiceImpl implements UserDetailsService{
 	}
 
 	@Override
-	public UserDetails loadUserByUsername(String txTmail) throws UsernameNotFoundException {
-		Optional<UsuarioObj> usuario = repository.findByTxEmail(txTmail);
+	public UserDetails loadUserByUsername(String txEmail) throws UsernameNotFoundException {
+		Optional<UsuarioObj> usuario = repository.findByTxEmail(txEmail);
 		if (usuario.isEmpty()) {
-			throw new UsernameNotFoundException("Usuário não encontrado");
+			throw new UsernameNotFoundException("Email de usuário [" + txEmail + "] não encontrado");
 		}
 		
 		return new DetalhesUsuarioData(usuario);
