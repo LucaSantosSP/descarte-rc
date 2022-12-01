@@ -9,7 +9,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.reactive.UrlBasedCorsConfigurationSource;
 
 import br.com.reciclavel.descarterc.service.DetalhesUsuarioServiceImpl;
@@ -37,7 +36,7 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
 		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 	}
 	
-	@Bean
+	/*@Bean
 	CorsConfigurationSource corsConfigurationSource() {
 		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
 		
@@ -45,5 +44,16 @@ public class JWTConfiguracao extends WebSecurityConfigurerAdapter {
 		source.registerCorsConfiguration("/**", corsConfiguration);
 		
 		return (CorsConfigurationSource) source;
+	}*/
+	
+	@Bean
+	UrlBasedCorsConfigurationSource corsConfigurationSource() {
+		final UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		
+		CorsConfiguration corsConfiguration = new CorsConfiguration().applyPermitDefaultValues();
+		source.registerCorsConfiguration("/**", corsConfiguration);
+		
+		return source;
+		
 	}
 }

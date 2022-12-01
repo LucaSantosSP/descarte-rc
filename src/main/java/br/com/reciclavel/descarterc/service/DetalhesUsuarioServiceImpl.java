@@ -5,11 +5,14 @@ import java.util.Optional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.reciclavel.descarterc.models.UsuarioObj;
 import br.com.reciclavel.descarterc.models.data.DetalhesUsuarioData;
 import br.com.reciclavel.descarterc.repository.UsuarioRepository;
 
+@Component
 public class DetalhesUsuarioServiceImpl implements UserDetailsService{
 
 	private final UsuarioRepository repository;
